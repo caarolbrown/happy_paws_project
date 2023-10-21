@@ -13,13 +13,13 @@ const Animal = sequelize.define('animal', {
         type: DataTypes.INTEGER
     }, 
     breed: {
-        type: DataTypes.ENUM('Female', 'Male')
+        type: DataTypes.STRING
     },
     weigth: {
         type: DataTypes.INTEGER
     }, 
     genre: {
-        type: DataTypes.BOOLEAN
+        type: DataTypes.ENUM('F', 'M')
     },
     entry_date: {
         type: DataTypes.DATE
