@@ -28,5 +28,6 @@ async function syncModels(){
         console.log(error)
     }
 }
+
 //exportamos sequelize y funciones
 module.exports = { sequelize, checkDB, syncModels }
