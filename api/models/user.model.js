@@ -1,7 +1,7 @@
-const { sequelize } = require('../../database/index.js') //importamos la instancia de sequilize creada en la carpeta database
+const { sequelize } = require('../../database/index.js') 
 const { DataTypes } = require('sequelize')
 
-const User = sequelize.define('user', { // definimos las columnas de nuestra tabla
+const User = sequelize.define('user', { 
 
         name: {
             type: DataTypes.STRING,
@@ -19,8 +19,8 @@ const User = sequelize.define('user', { // definimos las columnas de nuestra tab
             defaultValue: "user"
         }
 },
-{ //opciones
-    timestamps: false, // evita que nos cree las columnas updateAt y createAt
+{ 
+    timestamps: false, 
 })
 
 module.exports = User

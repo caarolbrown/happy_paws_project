@@ -1,5 +1,5 @@
 const User = require('../models/user.model') //nos importamos el modelo de usuario
-const ContactInfo = require('../models/contactInfo.model')
+
 
 async function getAllUsers(req, res){
     try {
@@ -11,7 +11,7 @@ async function getAllUsers(req, res){
 }
 
 async function getOneUser(req, res) {
-    console.log({body: req.body, params: req.params, query: req.query})  //consultar lo que nos llega en la request
+    console.log({body: req.body, params: req.params, query: req.query})  
     try {
         const user = await User.findByPk(req.params.id)
         if (!user){ res.status(500).send("Usuario no encontrado")}

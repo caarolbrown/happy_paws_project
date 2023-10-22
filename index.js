@@ -6,14 +6,11 @@ const morgan = require ('morgan')
 
 require ('dotenv').config()
 
-//para no tener las funciones sueltas hacemos una funcion para meterlas todas
 async function connectDB(){
-    await checkDB() //chequeamos conexion con la BD
-    //aqui hay que poner tambien la function de setRelations
-    await syncModels() //sincronizamos los cambios con la BD
+    await checkDB() 
+    await syncModels() 
 }
 
-//creamos function para lanzar el servidor
 function launchServer(){
     const app = express()
     .use(cors())
