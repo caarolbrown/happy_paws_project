@@ -9,7 +9,7 @@ const Payroll = sequelize.define('payroll', {
         },
         amount: {
             type: DataTypes.INTEGER,
-            allowNull: null
+            allowNull: false
         },
         payment_day: {
             type: DataTypes.DATE,
