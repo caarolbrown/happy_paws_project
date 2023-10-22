@@ -1,10 +1,10 @@
-/*const User = require('../api/models/user.model.js')
+const User = require('../api/models/user.model.js')
 const Payroll = require('../models/payroll.model.js');
 const HostFamily = require('../models/hostFamily.model.js');
 const AdoptiveFamily = require('../models/adoptiveFamily.model.js');
 const Task = require('../models/task.model.js');
 
-function addRelationsModels() {
+/*function setRelations() {
     try {
         //relaciones
         User.hasOne(Payroll);
@@ -16,5 +16,5 @@ function addRelationsModels() {
     }   catch (error) {
         console.log(error)
     }
-}
-module.exports = {addRelationsModels}*/
+}*/
+module.exports = {setRelations}

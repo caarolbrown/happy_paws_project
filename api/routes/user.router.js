@@ -4,7 +4,7 @@ const { getAllUsers, getOneUser, createUser, updateUser, deleteUser, getProfile 
 
 const router = require('express').Router() //le indicamos que vamos a usar el router de express para que maneje las peticiones
 
-//definimos las rutas por verbo
+//crud básico
 router.get('/', checkAuth, checkAdmin, getAllUsers) 
 router.get('/getProfile', checkAuth, getProfile)
 router.get('/:id', checkAuth, checkAdmin, getOneUser) 

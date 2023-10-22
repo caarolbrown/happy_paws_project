@@ -1,5 +1,5 @@
 const { checkDB, syncModels } = require('./database/index.js')
-//falta anadir aqui la function de setear relaciones pero mas adelante
+const { setRelations } = require('./database/models')
 const express = require ('express')
 const cors = require ('cors')
 const morgan = require ('morgan')
@@ -8,6 +8,7 @@ require ('dotenv').config()
 
 async function connectDB(){
     await checkDB() 
+    setRelations()
     await syncModels() 
 }
 
@@ -16,7 +17,7 @@ function launchServer(){
     .use(cors())
     .use(morgan('dev'))
     .use(express.json())
-    //.use('/api', require('./api/routes.index.js'))
+    .use('/api', require('./api/routes.index.js'))
     .listen(process.env.SRV_PORT, () => { console.log ('Express server listening on port 3000')})
 }
 
