@@ -19,7 +19,7 @@ async function getOneCage(req, res){
     }
 }
 
-//cuando se utilice el postman para crear un animal importante poner body y JSON
+//cuando se utilice el postman para crear una cage importante poner body y JSON
 async function createCage(req, res){
     try {
         const cage = await Cage.create(req.body)

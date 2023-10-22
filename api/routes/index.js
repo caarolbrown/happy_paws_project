@@ -4,11 +4,13 @@ const router = require('express').Router()
 const animalRouter = require('./animal.router')
 const cageRouter = require('./cage.router')
 const treatmentRouter = require('./treatment.router')
+const sicknessRouter = require('./sickness.router')
 
 //definimos rutas
 router.use('/animal', animalRouter)
 router.use('/cage', cageRouter)
 router.use('/treatment', treatmentRouter)
+router.use('/sickness', sicknessRouter)
 
 //exportamos modulo
 module.exports = router

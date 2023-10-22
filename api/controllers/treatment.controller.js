@@ -19,7 +19,7 @@ async function getOneTreatment(req, res){
     }
 }
 
-//cuando se utilice el postman para crear un animal importante poner body y JSON
+//cuando se utilice el postman para crear un treatment importante poner body y JSON
 async function createTreatment(req, res){
     try {
         const treatment = await Treatment.create(req.body)
