@@ -19,7 +19,7 @@ function launchServer(){
     .use(cors())
     .use(morgan('dev'))
     .use(express.json())
-    //.use('/api', require('./api/routes.index.js'))
+    .use('/api', require('./api/routes/index'))
     .listen(process.env.SRV_PORT, () => { console.log('Express server listening on port ' + process.env.SRV_PORT);})
 }
 
