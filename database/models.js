@@ -1,8 +1,17 @@
-const User = require('../api/models/user.model.js')
-const Payroll = require('../models/payroll.model.js');
-const HostFamily = require('../models/hostFamily.model.js');
-const AdoptiveFamily = require('../models/adoptiveFamily.model.js');
-const Task = require('../models/task.model.js');
+//const User = require('../api/models/user.model.js')
+const AdoptiveFamily = require('../api/models/hostfamily.model');
+//const Payroll = require('../models/payroll.model.js');
+//const HostFamily = require('../models/hostFamily.model.js');
+//const Task = require('../models/task.model.js');
+function setRelations(){
+    try {
+        console.log('Done')
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+module.exports = { setRelations }
 
 /*function setRelations() {
     try {
@@ -16,5 +25,5 @@ const Task = require('../models/task.model.js');
     }   catch (error) {
         console.log(error)
     }
-}*/
-module.exports = {setRelations}
+
+module.exports = {setRelations}}*/

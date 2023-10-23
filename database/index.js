@@ -1,5 +1,4 @@
 const { Sequelize } = require('sequelize')
-
 require ('dotenv').config()
 
 //creamos la conexion con la BD
