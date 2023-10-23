@@ -21,17 +21,6 @@ async function getOneAdoptiveFamily(req, res) {
     }
 }
 
-async function getProfile(req, res) {
-    console.log(res.locals.adoptiveFamily)
-    try {
-        const adoptiveFamily = await AdoptiveFamily.findByPk(res.locals.adoptiveFamily.id)
-        if (!adoptiveFamily) { res.status(500).send('AdoptiveFamily not found') }
-        res.status(200).json(adoptiveFamily)
-    } catch (error) {
-        res.status(402).send(error.message)
-    }
-}
-
 async function createAdoptiveFamily(req, res){
     console.log(req.body)
     try {
