@@ -55,4 +55,10 @@ async function deleteCage(req, res){
     }
 }
 
-module.exports = { getAllCages, getOneCage, createCage, updateCage, deleteCage }
+module.exports = { 
+    getAllCages, 
+    getOneCage, 
+    createCage, 
+    updateCage, 
+    deleteCage 
+}

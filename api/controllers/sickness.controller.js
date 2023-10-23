@@ -55,4 +55,10 @@ async function deleteSickness(req, res){
     }
 }
 
-module.exports = { getAllSickness, getOneSickness, createSickness, updateSickness, deleteSickness }
+module.exports = { 
+    getAllSickness, 
+    getOneSickness, 
+    createSickness, 
+    updateSickness, 
+    deleteSickness 
+}
