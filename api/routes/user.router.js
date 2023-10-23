@@ -4,7 +4,7 @@ const { getAllUsers, getOneUser, createUser, updateUser, deleteUser, getProfile,
 
 const router = require('express').Router() 
 
-
+//definimos CRUD basico de user
 router.get('/', getAllUsers) 
 router.get('/getProfile', getProfile)
 router.get('/:id', getOneUser) 

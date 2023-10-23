@@ -11,7 +11,6 @@ const adoptiveFamily = require('./adoptiveFamily.router')
 const payroll = require('./payroll.router')
 const hostFamily = require('./hostfamily.routes')
 
-
 //definimos rutas
 router.use('/animal', animalRouter)
 router.use('/cage', cageRouter)
@@ -22,5 +21,6 @@ router.use('/task', taskRouter)
 router.use('/adoptiveFamily', adoptiveFamily)
 router.use('/payroll', payroll)
 router.use('/hostFamily', hostFamily)
+
 //exportamos modulo
 module.exports = router

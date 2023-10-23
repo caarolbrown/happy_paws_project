@@ -4,7 +4,7 @@ const { getAllHostFamily, getOneHostFamily, createHostFamily, updateHostFamily, 
 
 const router = require('express').Router() //le indicamos que vamos a usar el router de express para que maneje las peticiones
 
-//crud básico
+//definimos CRUD basico de host_fam
 router.get('/', getAllHostFamily) 
 router.get('/:id', getOneHostFamily) 
 router.post('/', createHostFamily) 

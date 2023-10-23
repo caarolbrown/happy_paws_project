@@ -4,9 +4,9 @@ const HostFamily = require('../models/hostfamily.model') //nos importamos el mod
 async function getAllHostFamily(req, res){
     try {
         const hostFamily = await HostFamily.findAll()
-        res.status(200).json(hostFamily)
+        return res.status(200).json(hostFamily)
     } catch (error) {
-        res.status(402).send(error.message)
+        return res.status(402).send(error.message)
     }
 }
 
@@ -15,19 +15,19 @@ async function getOneHostFamily(req, res) {
     try {
         const hostFamily = await HostFamily.findByPk(req.params.id)
         if (!hostFamily){ res.status(500).send('HostFamily not found')}
-        res.status(200).json(hostFamily)
+        return res.status(200).json(hostFamily)
     } catch (error) {
-        res.status(402).send(error.message)
+        return res.status(402).send(error.message)
     }
 }
 async function createHostFamily(req, res){
     console.log(req.body)
     try {
         const hostFamily = await HostFamily.create(req.body)
-        res.status(200).send('HostFamily created')
+        return res.status(200).send('HostFamily created')
 
     } catch (error) {
-        res.status(402).send(error.message)
+        return res.status(402).send(error.message)
     }
 }
 
@@ -36,9 +36,9 @@ async function updateHostFamily(req, res){
         const hostFamily = await HostFamily.update(req.body, {
             where: {id: req.params.id},
         })
-        res.status(200).json(hostFamily)//({text: 'HostFamily updated'})
+        return res.status(200).json(hostFamily)
     } catch (error) {
-        res.status(402).send(error.message)
+        return res.status(402).send(error.message)
     }
 }
 
@@ -47,10 +47,16 @@ async function deleteHostFamily(req, res){
         const hostFamily = await HostFamily.destroy({
             where: { id: req.params.id },
         })
-        res.status(200).json({text: 'HostFamily removed', hostFamily: hostFamily})
+        res.status(200).json({ text: 'HostFamily removed', hostFamily: hostFamily })
     } catch (error) {
         res.status(402).send(error.message)
     }
 }
 
-module.exports = { getAllHostFamily, getOneHostFamily, createHostFamily, updateHostFamily, deleteHostFamily }
+module.exports = { 
+    getAllHostFamily, 
+    getOneHostFamily, 
+    createHostFamily, 
+    updateHostFamily, 
+    deleteHostFamily 
+}

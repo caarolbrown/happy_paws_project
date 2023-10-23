@@ -2,7 +2,7 @@ const { getAllTasks, getOneTask, createTask, updateTask, deleteTask} = require('
 
 const router = require('express').Router()
 
-//definimos CRUD basico de animal
+//definimos CRUD basico de tasks
 router.get('/', getAllTasks)
 router.get('/:id', getOneTask)
 router.post('/', createTask)

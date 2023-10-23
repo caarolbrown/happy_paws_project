@@ -11,7 +11,7 @@ async function getAllTasks(req, res){
 }
 
 async function getOneTask(req, res) {
-    console.log({body: req.body, params: req.params, query: req.query})  
+    console.log({ body: req.body, params: req.params, query: req.query })  
     try {
         const task = await Task.findByPk(req.params.id)
         if (!task){ res.status(500).send('Task not found')}
@@ -35,7 +35,7 @@ async function createTask(req, res){
 async function updateTask(req, res){
     try {
         const task = await Task.update(req.body, {
-            where: {id: req.params.id},
+            where: { id: req.params.id },
         })
         res.status(200).json(user)//({text: 'Task updated'})
     } catch (error) {

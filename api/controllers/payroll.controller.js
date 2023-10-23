@@ -11,7 +11,7 @@ async function getAllPayroll(req, res){
 }
 
 async function getOnePayroll(req, res) {
-    console.log({body: req.body, params: req.params, query: req.query})  
+    console.log({ body: req.body, params: req.params, query: req.query })  
     try {
         const payroll = await Payroll.findByPk(req.params.id)
         if (!payroll){ res.status(500).send('Payroll not found')}
@@ -34,7 +34,7 @@ async function createPayroll(req, res){
 async function updatePayroll(req, res){
     try {
         const payroll = await Payroll.update(req.body, {
-            where: {id: req.params.id},
+            where: { id: req.params.id },
         })
         res.status(200).json(payroll)//({text: 'Payroll updated'})
     } catch (error) {

@@ -2,7 +2,7 @@ const { getAllTreatments, getOneTreatment, createTreatment, updateTreatment, del
 
 const router = require('express').Router()
 
-//definimos CRUD basico de animal
+//definimos CRUD basico de treatment
 router.get('/', getAllTreatments)
 router.get('/:id', getOneTreatment)
 router.post('/', createTreatment)

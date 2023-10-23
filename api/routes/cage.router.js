@@ -2,7 +2,7 @@ const { getAllCages, getOneCage, createCage, updateCage, deleteCage } = require(
 
 const router = require('express').Router()
 
-//definimos CRUD basico de animal
+//definimos CRUD basico de cage
 router.get('/', getAllCages)
 router.get('/:id', getOneCage)
 router.post('/', createCage)

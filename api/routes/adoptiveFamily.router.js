@@ -4,7 +4,7 @@ const { getAllAdoptiveFamily, getOneAdoptiveFamily, createAdoptiveFamily, update
 
 const router = require('express').Router() //le indicamos que vamos a usar el router de express para que maneje las peticiones
 
-//crud básico
+///definimos CRUD basico de adoptive_fam
 router.get('/', getAllAdoptiveFamily) 
 router.get('/:id', getOneAdoptiveFamily) 
 router.post('/', createAdoptiveFamily) 

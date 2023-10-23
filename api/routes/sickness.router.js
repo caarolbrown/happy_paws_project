@@ -2,7 +2,7 @@ const { getAllSickness, getOneSickness, createSickness, updateSickness, deleteSi
 
 const router = require('express').Router()
 
-//definimos CRUD basico de animal
+//definimos CRUD basico de sickness
 router.get('/', getAllSickness)
 router.get('/:id', getOneSickness)
 router.post('/', createSickness)
