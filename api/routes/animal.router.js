@@ -11,5 +11,4 @@ router.put('/treatment', setTreatment)
 router.put('/cage', setCage)
 router.put('/:id', updateAnimal)
 router.delete('/:id', deleteAnimal)
-
 module.exports = router

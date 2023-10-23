@@ -3,6 +3,7 @@ const Sickness = require('../models/sickness.model')
 const Treatment = require('../models/treatment.model')
 const Cage = require('../models/cage.model')
 
+
 async function getAllAnimals(req, res) {
     try {
         const animals = await Animal.findAll()
@@ -11,6 +12,7 @@ async function getAllAnimals(req, res) {
         return res.status(500).send(error.message)
     }
 }
+
 
 async function getOneAnimal(req, res) {
     try {
@@ -83,6 +85,7 @@ async function createAnimal(req, res) {
     }
 }
 
+
 async function updateAnimal(req, res) {
     try {
         const animal = await Animal.update(req.body, {
@@ -95,6 +98,7 @@ async function updateAnimal(req, res) {
         return res.status(500).send(error.message)
     }
 }
+
 
 async function deleteAnimal(req, res) {
     try {

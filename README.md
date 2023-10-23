@@ -60,6 +60,9 @@ Ref: "animals"."id" > "host_families"."id_animals"
 Host_families - Animal 
 Ref: "animals"."id" > "adoptive_families"."id_animals"
 
+User – Tasks
+Ref: "users"."id" <> "tasks"."id"
+
 **MANY TO MANY**
 
 Animal - Sickness
@@ -72,8 +75,6 @@ Ref: "animals"."id" <> "animal_treatment"."id_animals"
 
 Ref: "animal_treatment"."id_treatment" <> "treatment"."id"
 
-User – Tasks
-Ref: "users"."id" <> "tasks"."id"
 
 ### Members Endpoints
 **USERS**

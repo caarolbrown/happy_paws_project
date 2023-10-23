@@ -11,25 +11,25 @@ const Animal = sequelize.define('animal', {
     },
     age: {
         type: DataTypes.INTEGER
-    }, 
+    },
     breed: {
         type: DataTypes.STRING
     },
     weigth: {
         type: DataTypes.INTEGER
-    }, 
+    },
     genre: {
         type: DataTypes.ENUM('F', 'M')
     },
     entry_date: {
         type: DataTypes.DATE
-    }, 
-    exit_date: { 
+    },
+    exit_date: {
         type: DataTypes.DATE
     }
 },
-{
-    timestamps: false
-})
+    {
+        timestamps: false
+    })
 
 module.exports = Animal
