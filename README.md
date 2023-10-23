@@ -40,37 +40,46 @@ Voluntarios = VBAT
 **ONE TO ONE**
 
 Animal - Cage - CAROL
+
 Ref: "animals"."id_cage" – "cage"."id"
 
 User - Payroll - AYTHA
+
 Ref: "users"."id" – "payroll"."id_user"
 
 User – Host_families - AYTHA
+
 Ref: "host_families"."id_user" - "users"."id"
 
 User – Adoptive_families - AYTHA
+
 Ref: "adoptive_families"."id_user" - "users"."id"
 
 
 **ONE TO MANY**
 
 Adoptive_families - Animal - AYTHA
+
 Ref: "animals"."id" > "host_families"."id_animals"
 
 Host_families - Animal - AYTHA
+
 Ref: "animals"."id" > "adoptive_families"."id_animals"
 
 User – Tasks - FER
+
 Ref: "users"."id" <> "tasks"."id"
 
 **MANY TO MANY**
 
 Animal - Sickness - CAROL
+
 Ref: "animals"."id" <> "animal_sickness"."id_animals"
 
 Ref: "animal_sickness"."id_sickness" <> "sickness"."id"
 
 Animal – Treatment - CAROL
+
 Ref: "animals"."id" <> "animal_treatment"."id_animals"
 
 Ref: "animal_treatment"."id_treatment" <> "treatment"."id"
