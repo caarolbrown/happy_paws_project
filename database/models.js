@@ -8,6 +8,11 @@ const Payroll = require ('../api/models/payroll.model.js')
 
 function setRelations(){
     try {
+        //One to one 
+        Animal.hasOne(Cage)
+        Cage.belongsTo(Animal)
+
+        //Many to many
         Animal.belongsToMany(Treatment, { through: 'animal_treatment' })
         Treatment.belongsToMany(Animal, { through: 'animal_treatment' })
 

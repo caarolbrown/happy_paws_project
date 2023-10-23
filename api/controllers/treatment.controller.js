@@ -55,4 +55,10 @@ async function deleteTreatment(req, res){
     }
 }
 
-module.exports = { getAllTreatments, getOneTreatment, createTreatment, updateTreatment, deleteTreatment }
+module.exports = { 
+    getAllTreatments, 
+    getOneTreatment, 
+    createTreatment, 
+    updateTreatment, 
+    deleteTreatment 
+}
