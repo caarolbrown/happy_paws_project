@@ -1,4 +1,4 @@
-const { getAllUsers, getOneUser, createUser, updateUser, deleteUser, getProfile, setTask } = require('../controllers/user.controller')
+const { getAllUsers, getOneUser, createUser, updateUser, deleteUser, getProfile, setTask, getPayroll } = require('../controllers/user.controller')
 //const { checkAuth, checkAdmin } = require('../middleware')
 
 
@@ -11,6 +11,7 @@ router.get('/:id', getOneUser)
 router.post('/', createUser) 
 router.put('/task', setTask)
 router.put('/:id', updateUser) 
-router.delete('/:id', deleteUser)  
+router.delete('/:id', deleteUser)
+router.put('/payroll', getPayroll)  
 
 module.exports = router

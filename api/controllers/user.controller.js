@@ -70,8 +70,8 @@ async function setTask(req, res) {
       if (!user) {
           return res.status(404).json({ error: 'Usuario no encontrado.' })
       }
-      if (user.role !== 'volunteer') {
-          return res.status(403).json({ error: 'Solo los voluntarios pueden tener tareas.' })
+      if (user.role === 'user') {
+          return res.status(403).json({ error: 'Los usuarios no pueden acceder a esta información' })
       }
 
       await user.addTask(req.body.taskId)
@@ -81,21 +81,21 @@ async function setTask(req, res) {
   }
 }
 
-/*async function getPayroll(req, res) {
+async function getPayroll(req, res) {
     try {
         const user = await User.findByPk(req.body.userId, {
             include: Payroll
         })
         if(!user) {
-            return res.status(404).json({error: 'Usuario no encontrado.'})    
+            return res.status(404).json({ error: 'Usuario no encontrado.'})    
         }
-        if (user.role !== 'employee') {
-            return res.status(403).json({ error: 'Solo los empleados pueden acceder a payroll'})
+        if (user.role !== 'employee' || user.role !== 'admin') {
+            return res.status(403).json({ error: 'Solo el personal autorizado puede acceder a payroll'})
         }
         res.status(200).json(user.payroll)
      } catch (error) {
         res.status(500).send(error.message)
         
     }
-}*/
-module.exports = { getAllUsers, getOneUser, createUser, updateUser, deleteUser, getProfile, setTask }
+}
+module.exports = { getAllUsers, getOneUser, createUser, updateUser, deleteUser, getProfile, setTask, getPayroll }
