@@ -77,6 +77,7 @@ async function setTask(req, res) {
   } catch (error) {
     res.status(500).send(error.message)
   }
-
 }
+
+async function 
 module.exports = { getAllUsers, getOneUser, createUser, updateUser, deleteUser, getProfile, setTask }
