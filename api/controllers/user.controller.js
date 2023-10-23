@@ -1,5 +1,5 @@
-const User = require('../models/user.model') //nos importamos el modelo de usuario
-
+const User = require('../models/user.model.js') //nos importamos el modelo de usuario
+const Task = require('../models/task.model.js')
 
 async function getAllUsers(req, res){
     try {
@@ -11,7 +11,6 @@ async function getAllUsers(req, res){
 }
 
 async function getOneUser(req, res) {
-    console.log({body: req.body, params: req.params, query: req.query})  
     try {
         const user = await User.findByPk(req.params.id)
         if (!user){ res.status(500).send('User not found')}
@@ -22,7 +21,6 @@ async function getOneUser(req, res) {
 }
 
 async function getProfile(req, res) {
-    console.log(res.locals.user)
     try {
         const user = await User.findByPk(res.locals.user.id)
         if (!user) { res.status(500).send('User not found') }
@@ -33,7 +31,6 @@ async function getProfile(req, res) {
 }
 
 async function createUser(req, res){
-    console.log(req.body)
     try {
         const user = await User.create(req.body)
         res.status(200).send('User created')
@@ -46,7 +43,7 @@ async function createUser(req, res){
 async function updateUser(req, res){
     try {
         const user = await User.update(req.body, {
-            where: {id: req.params.id},
+            where: { id: req.params.id },
         })
         res.status(200).json(user)//({text: 'User updated'})
     } catch (error) {
@@ -59,10 +56,27 @@ async function deleteUser(req, res){
         const user = await User.destroy({
             where: { id: req.params.id },
         })
-        res.status(200).json({text: 'User removed', user: user})
+        res.status(200).json({ text: 'User removed', user: user })
     } catch (error) {
-        res.status(402).send(error.message)
+        res.status(500).send(error.message)
     }
 }
 
-module.exports = { getAllUsers, getOneUser, createUser, updateUser, deleteUser, getProfile}
+async function setTask(req, res) {
+  try {
+      const user = await User.findByPk(req.body.userId)
+      if (!user) {
+          return res.status(404).json({ error: 'Usuario no encontrado.' })
+      }
+      if (user.role !== 'volunteer') {
+          return res.status(403).json({ error: 'Solo los voluntarios pueden tener tareas.' })
+      }
+
+      await user.addTask(req.body.taskId)
+      res.status(200).send('Task added')
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+
+}
+module.exports = { getAllUsers, getOneUser, createUser, updateUser, deleteUser, getProfile, setTask }
