@@ -1,4 +1,4 @@
-const Payroll = require('../models/payroll.model') //nos importamos el modelo de adpotivefamilies
+const Payroll = require('../models/payroll.model') //nos importamos el modelo de payrolls
 
 
 async function getAllPayroll(req, res){

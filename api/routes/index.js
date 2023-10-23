@@ -19,7 +19,6 @@ router.use('/treatment', treatmentRouter)
 router.use('/sickness', sicknessRouter)
 router.use('/user', userRouter)
 router.use('/task', taskRouter)
-
 router.use('/adoptiveFamily', adoptiveFamily)
 router.use('/payroll', payroll)
 router.use('/hostFamily', hostFamily)
