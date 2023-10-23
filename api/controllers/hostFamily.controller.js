@@ -20,18 +20,6 @@ async function getOneHostFamily(req, res) {
         res.status(402).send(error.message)
     }
 }
-
-async function getProfile(req, res) {
-    console.log(res.locals.hostFamily)
-    try {
-        const hostFamily = await HostFamily.findByPk(res.locals.hostFamily.id)
-        if (!hostFamily) { res.status(500).send('HostFamily not found') }
-        res.status(200).json(hostFamily)
-    } catch (error) {
-        res.status(402).send(error.message)
-    }
-}
-
 async function createHostFamily(req, res){
     console.log(req.body)
     try {
