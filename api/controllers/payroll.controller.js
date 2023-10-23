@@ -20,18 +20,6 @@ async function getOnePayroll(req, res) {
         res.status(402).send(error.message)
     }
 }
-
-async function getProfile(req, res) {
-    console.log(res.locals.payroll)
-    try {
-        const payroll = await Payroll.findByPk(res.locals.payroll.id)
-        if (!payroll) { res.status(500).send('Payroll not found') }
-        res.status(200).json(payroll)
-    } catch (error) {
-        res.status(402).send(error.message)
-    }
-}
-
 async function createPayroll(req, res){
     console.log(req.body)
     try {
