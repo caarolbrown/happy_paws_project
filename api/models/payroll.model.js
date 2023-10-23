@@ -1,12 +1,7 @@
 const { sequelize } = require('../../database/index.js') 
 const { DataTypes } = require('sequelize')
 
-const Payroll = sequelize.define('payroll', { 
-
-        id_user: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
+const Payroll = sequelize.define('payroll', {
         amount: {
             type: DataTypes.INTEGER,
             allowNull: null

@@ -2,11 +2,6 @@ const { sequelize } = require('../../database/index')
 const { DataTypes } = require('sequelize')
 
 const AdoptiveFamily = sequelize.define('adoptiveFamily', { 
-
-        id_user: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         address: {
             type: DataTypes.STRING,
             allowNull: false
