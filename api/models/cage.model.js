@@ -11,10 +11,10 @@ const Cage = sequelize.define('cage', {
     },
     availability: {
         type: DataTypes.STRING
-    }, 
+    },
 },
-{
-    timestamps: false
-})
+    {
+        timestamps: false
+    })
 
 module.exports = Cage

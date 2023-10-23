@@ -1,4 +1,4 @@
-const { getAllCages, getOneCage, createCage, updateCage, deleteCage} = require('../controllers/cage.controller')
+const { getAllCages, getOneCage, createCage, updateCage, deleteCage } = require('../controllers/cage.controller')
 
 const router = require('express').Router()
 

@@ -10,5 +10,4 @@ router.put('/sickness', setSickness)
 router.put('/treatment', setTreatment)
 router.put('/:id', updateAnimal)
 router.delete('/:id', deleteAnimal)
-
 module.exports = router
