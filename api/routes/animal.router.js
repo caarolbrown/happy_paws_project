@@ -1,4 +1,4 @@
-const { getAllAnimals, getOneAnimal, createAnimal, updateAnimal, deleteAnimal} = require('../controllers/animal.controller')
+const { getAllAnimals, getOneAnimal, createAnimal, updateAnimal, deleteAnimal, setSickness, setTreatment} = require('../controllers/animal.controller')
 
 const router = require('express').Router()
 
@@ -6,6 +6,8 @@ const router = require('express').Router()
 router.get('/', getAllAnimals)
 router.get('/:id', getOneAnimal)
 router.post('/', createAnimal)
+router.put('/sickness', setSickness)
+router.put('/treatment', setTreatment)
 router.put('/:id', updateAnimal)
 router.delete('/:id', deleteAnimal)
 
