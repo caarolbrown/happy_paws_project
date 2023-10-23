@@ -5,11 +5,11 @@ const { getAllUsers, getOneUser, createUser, updateUser, deleteUser, getProfile 
 const router = require('express').Router() 
 
 
-router.get('/', checkAuth, checkAdmin, getAllUsers) 
-router.get('/getProfile', checkAuth, getProfile)
-router.get('/:id', checkAuth, checkAdmin, getOneUser) 
-router.post('/', checkAuth, checkAdmin, createUser) 
-router.put('/:id', checkAuth, checkAdmin, updateUser) 
-router.delete('/:id', checkAuth, checkAdmin, deleteUser)  
+router.get('/', getAllUsers) 
+router.get('/getProfile', getProfile)
+router.get('/:id', getOneUser) 
+router.post('/', createUser) 
+router.put('/:id', updateUser) 
+router.delete('/:id', deleteUser)  
 
 module.exports = router
