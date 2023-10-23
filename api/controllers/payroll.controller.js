@@ -1,4 +1,4 @@
-const Payroll = require('../models/payroll.model') //nos importamos el modelo de usuario
+const Payroll = require('../models/payroll.model') //nos importamos el modelo de adpotivefamilies
 
 
 async function getAllPayroll(req, res){
@@ -53,4 +53,4 @@ async function deletePayroll(req, res){
     }
 }
 
-module.exports = { getAllPayroll, getOnePayroll, createPayroll, updatePayroll, deletePayroll, getPayroll}
+module.exports = { getAllPayroll, getOnePayroll, createPayroll, updatePayroll, deletePayroll }
