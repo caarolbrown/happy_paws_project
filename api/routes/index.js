@@ -10,6 +10,10 @@ const cageRouter = require('./cage.router')
 //definimos rutas
 router.use('/animal', animalRouter)
 router.use('/cage', cageRouter)
+router.use('/treatment', treatmentRouter)
+router.use('/sickness', sicknessRouter)
+router.use('/user', userRouter)
+router.use('/task', taskRouter)
 
 //exportamos modulo
 module.exports = router
