@@ -1,4 +1,4 @@
-const AdoptiveFamily = require('../models/adoptiveFamily.model') //nos importamos el modelo de usuario
+const AdoptiveFamily = require('../models/adoptiveFamily.model') //nos importamos el modelo de adpotivefamilies
 
 
 async function getAllAdoptiveFamily(req, res){
@@ -20,7 +20,6 @@ async function getOneAdoptiveFamily(req, res) {
         res.status(402).send(error.message)
     }
 }
-
 async function createAdoptiveFamily(req, res){
     console.log(req.body)
     try {
@@ -54,4 +53,4 @@ async function deleteAdoptiveFamily(req, res){
     }
 }
 
-module.exports = { getAllAdoptiveFamily, getOneAdoptiveFamily, createAdoptiveFamily, updateAdoptiveFamily, deleteAdoptiveFamily, getAdoptiveFamily}
+module.exports = { getAllAdoptiveFamily, getOneAdoptiveFamily, createAdoptiveFamily, updateAdoptiveFamily, deleteAdoptiveFamily }

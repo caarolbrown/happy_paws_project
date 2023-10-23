@@ -1,4 +1,4 @@
-const { sequelize } = require('../../database/index.js') 
+const { sequelize } = require('../../database/index') 
 const { DataTypes } = require('sequelize')
 
 const AdoptiveFamily = sequelize.define('adoptiveFamily', { 
