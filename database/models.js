@@ -5,6 +5,8 @@ const Sickness = require('../api/models/sickness.model')
 const Animal = require('../api/models/animal.model')
 const Cage = require('../api/models/cage.model')
 const Payroll = require ('../api/models/payroll.model.js')
+const HostFamily = require ('../api/models/hostfamily.model.js')
+const AdoptiveFamily = require ('../api/models/adoptiveFamily.model.js')
 
 function setRelations(){
     try {
@@ -22,7 +24,7 @@ function setRelations(){
         User.hasOne(Payroll)
         Payroll.belongsTo(User)
           
-        console.log('Done')
+        
         User.hasMany(Task);
         Task.belongsTo(User);
     } catch (error) {
