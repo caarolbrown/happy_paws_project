@@ -4,6 +4,7 @@ const Treatment = require('../api/models/treatment.model')
 const Sickness = require('../api/models/sickness.model')
 const Animal = require('../api/models/animal.model')
 const Cage = require('../api/models/cage.model')
+const Payroll = require ('../api/models/payroll.model.js')
 
 function setRelations(){
     try {
@@ -12,7 +13,10 @@ function setRelations(){
 
         Animal.belongsToMany(Sickness, { through: 'animal_sickness' })
         Sickness.belongsToMany(Animal, { through: 'animal_sickness' })
-
+        
+        User.hasOne(Payroll)
+        Payroll.belongsTo(User)
+          
         console.log('Done')
         User.hasMany(Task);
         Task.belongsTo(User);
