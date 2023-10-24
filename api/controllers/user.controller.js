@@ -1,5 +1,6 @@
 const User = require('../models/user.model.js') //nos importamos el modelo de usuario
 const Task = require('../models/task.model.js')
+const AdoptiveFamily = require('../models/adoptiveFamily.model.js')
 
 async function getAllUsers(req, res){
     try {
@@ -24,10 +25,12 @@ async function getOneUser(req, res) {
 
 async function getProfile(req, res) {
     try {
+    
         const user = await User.findByPk(res.locals.user.id)
-        if (!user) { res.status(500).send('User not found') }
+        if (!user) {{ res.status(500).send('User not found') }
         return res.status(200).json(user)
-    } catch (error) {
+    }
+    }   catch (error) {
         return res.status(402).send(error.message)
     }
 }
@@ -65,21 +68,26 @@ async function deleteUser(req, res){
 }
 
 async function setTask(req, res) {
-  try {
-      const user = await User.findByPk(req.body.userId)
-      if (!user) {
-          return res.status(404).json({ error: 'Usuario no encontrado.' })
-      }
-      if (user.role === 'user') {
-          return res.status(403).json({ error: 'Los usuarios no pueden acceder a esta información' })
-      }
+    try {
+        const task = await Task.findByPk(req.body.taskId)
+        const user = await User.findByPk(req.body.voluntarioId, {
+            include: Task
+        })
 
-      await user.addTask(req.body.taskId)
-        return res.status(200).send('Task added')
-  } catch (error) {
+        if (user.role != 'volunteer'){
+            return res.status(501).send("This is not volunteer")
+        }
+        if (user.tasks.length >= 2){
+            return res.status(501).send("Este Voluntario tiene demasiadas tareas")
+        }
+        await task.setUser(user)
+        return res.status(200).send("Tarea añadida")
+    } catch (error) {
         return res.status(500).send(error.message)
-  }
+
+    }
 }
+
 
 async function getPayroll(req, res) {
     try {
@@ -98,4 +106,23 @@ async function getPayroll(req, res) {
         
     }
 }
+
+// async function getAdoptiveFamilies(req, res) {
+//     try {
+//         const user = await User.findByPk(req.body.userId, {
+//             include: AdoptiveFamily
+//         })
+//         if (!user) {
+//             return res.status(404).json({ error: 'Usuario no encontrado.' })
+//         }
+//         if (user.role !== 'employee' || user.role !== 'admin') {
+//             return res.status(403).json({ error: 'Solo el personal autorizado puede acceder a payroll' })
+//         }
+//         return res.status(200).json(user.payroll)
+//     } catch (error) {
+//         return res.status(500).send(error.message)
+
+//     }
+// }
+
 module.exports = { getAllUsers, getOneUser, createUser, updateUser, deleteUser, getProfile, setTask, getPayroll }

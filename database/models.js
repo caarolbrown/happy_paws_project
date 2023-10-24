@@ -14,6 +14,9 @@ function setRelations(){
         Animal.hasOne(Cage)
         Cage.belongsTo(Animal)
 
+        User.hasOne(Payroll)
+        Payroll.belongsTo(User)
+
         //Many to many
         Animal.belongsToMany(Treatment, { through: 'animal_treatment' })
         Treatment.belongsToMany(Animal, { through: 'animal_treatment' })
@@ -21,10 +24,7 @@ function setRelations(){
         Animal.belongsToMany(Sickness, { through: 'animal_sickness' })
         Sickness.belongsToMany(Animal, { through: 'animal_sickness' })
         
-        User.hasOne(Payroll)
-        Payroll.belongsTo(User)
-          
-        
+  
         User.hasMany(Task);
         Task.belongsTo(User);
     } catch (error) {
