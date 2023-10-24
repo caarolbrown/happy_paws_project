@@ -27,9 +27,6 @@ function setRelations(){
         User.hasMany(Task)
         Task.belongsTo(User)
 
-        HostFamily.hasMany(User)
-        User.belongsTo(HostFamily)
-
         Animal.hasMany(AdoptiveFamily)
         AdoptiveFamily.belongsTo(Animal)
 

@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken')
 const User = require('../models/user.model')
 const bcrypt = require('bcrypt')
+require('dotenv').config()
+
 
 async function login(req, res){
     try {
@@ -16,7 +18,7 @@ async function login(req, res){
 
         if (comparePass){
             const payload = { email: user.email }
-            const token = jwt.sign(payload, process.env.SECRET, { expires: '1h' })
+            const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '1h' })
             return res.status(200).send({ token })
         } else {
             return res.status(404).send('Error: Email or Password incorrect')
