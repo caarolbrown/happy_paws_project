@@ -24,6 +24,29 @@ async function getOneAnimal(req, res) {
     }
 }
 
+//cuando se utilice el postman para crear un animal importante poner body y JSON
+async function createAnimal(req, res) {
+    try {
+        const animal = await Animal.create(req.body)
+        return res.status(200).send('Animal created')
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
+async function updateAnimal(req, res) {
+    try {
+        const animal = await Animal.update(req.body, {
+            where: {
+                id: req.params.id
+            },
+        })
+        return res.status(200).json(animal)
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
 async function setSickness(req, res) {
     try {
         const animal = await Animal.findByPk(req.body.animalId)
@@ -68,36 +91,12 @@ async function setCage(req, res) {
                 }
             })
             return res.status(200).json(animal)
-        } 
+        }
         return res.status(500).send('This cage is not accurated for this animal')
     } catch (error) {
         return res.status(500).send(error.message)
     }
 }
-
-//cuando se utilice el postman para crear un animal importante poner body y JSON
-async function createAnimal(req, res) {
-    try {
-        const animal = await Animal.create(req.body)
-        return res.status(200).send('Animal created')
-    } catch (error) {
-        return res.status(500).send(error.message)
-    }
-}
-
-async function updateAnimal(req, res) {
-    try {
-        const animal = await Animal.update(req.body, {
-            where: {
-                id: req.params.id
-            },
-        })
-        return res.status(200).json(animal)
-    } catch (error) {
-        return res.status(500).send(error.message)
-    }
-}
-
 
 async function deleteAnimal(req, res) {
     try {

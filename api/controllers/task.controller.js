@@ -15,7 +15,7 @@ async function getOneTask(req, res) {
     try {
         const task = await Task.findByPk(req.params.id)
         if (!task){ res.status(500).send('Task not found')}
-        res.status(200).json(task)
+        return res.status(200).json(task)
     } catch (error) {
         res.status(402).send(error.message)
     }
@@ -25,10 +25,21 @@ async function createTask(req, res){
     console.log(req.body)
     try {
         const task = await Task.create(req.body)
-        res.status(200).send('Task created')
+        return res.status(200).send('Task created')
 
     } catch (error) {
-        res.status(402).send(error.message)
+        return res.status(402).send(error.message)
+    }
+}
+
+async function getAvailability(req, res){
+    try {
+        const availability = await Task.findAll({
+            where: req.body
+        }) 
+        return res.status(200).json(availability)
+    } catch (error) {
+        return res.status(402).send(error.message)
     }
 }
 
@@ -56,4 +67,4 @@ async function deleteTask(req, res){
 
 
 
-module.exports = { getAllTasks, getOneTask, createTask, updateTask, deleteTask }
+module.exports = { getAllTasks, getOneTask, createTask, updateTask, deleteTask, getAvailability }
