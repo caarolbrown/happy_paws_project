@@ -21,6 +21,10 @@ const Animal = sequelize.define('animal', {
     genre: {
         type: DataTypes.ENUM('F', 'M')
     },
+    health: {
+        type: DataTypes.ENUM('healthy', 'sick'),
+        defaultValue: 'healthy'
+    },
     entry_date: {
         type: DataTypes.DATE
     },

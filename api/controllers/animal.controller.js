@@ -60,6 +60,9 @@ async function setSickness(req, res) {
 async function setTreatment(req, res) {
     try {
         const animal = await Animal.findByPk(req.body.animalId)
+        if (animal.health === 'sick') {
+            res.status(500).send('This animal is healthy')
+        } 
         await animal.addTreatment(req.body.treatmentId)
         return res.status(200).json(animal)
     } catch (error) {

@@ -1,5 +1,5 @@
 const { getAllCages, getOneCage, createCage, updateCage, deleteCage, cageStatus } = require('../controllers/cage.controller')
-const { checkAuth, checkAdmin, checkEmployee, checkVolunteer } = require('../middleware')
+const { checkAuth, checkAdmin, checkVolunteer } = require('../middleware')
 
 const router = require('express').Router()
 
