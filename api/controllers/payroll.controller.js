@@ -20,14 +20,41 @@ async function getOnePayroll(req, res) {
         res.status(402).send(error.message)
     }
 }
-async function createPayroll(req, res){
-    console.log(req.body)
+async function createPayroll(req, res) {
     try {
-        const payroll = await Payroll.create(req.body)
-        res.status(200).send('Payroll created')
+        const payroll = await Payroll.create(req.body);
 
+        if (payroll.position !== 'vet' && payroll.position !== 'vet auxiliary' && payroll.position !== 'management') {
+            return res.status(404).send('Invalid position');
+        }
+
+        switch (payroll.position) {
+            case 'vet':
+                if (payroll.amount >= 1500) {
+                    return res.status(404).send('Not the regular payment');
+                }
+                break;
+
+            case 'vet auxiliary':
+                if (payroll.amount <= 1500) {
+                    return res.status(404).send('Not the regular payment');
+                }
+                break;
+
+            case 'management':
+                if (payroll.amount > 1000 && payroll.amount < 2000) {
+                    return res.status(404).send('Not the regular payment');
+                }
+                break;
+
+            default:
+                if (payroll.amount === 1300) {
+                }
+                break;
+        }
+        res.status(200).send('Payroll created');
     } catch (error) {
-        res.status(402).send(error.message)
+        res.status(402).send(error.message);
     }
 }
 

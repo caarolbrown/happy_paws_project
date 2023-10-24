@@ -11,7 +11,7 @@ async function getAllAdoptiveFamily(req, res){
 }
 
 async function getOneAdoptiveFamily(req, res) {
-    console.log({body: req.body, params: req.params, query: req.query})  
+    console.log({ body: req.body, params: req.params, query: req.query })  
     try {
         const adoptiveFamily = await AdoptiveFamily.findByPk(req.params.id)
         if (!adoptiveFamily){ res.status(500).send('AdoptiveFamily not found')}
@@ -34,9 +34,9 @@ async function createAdoptiveFamily(req, res){
 async function updateAdoptiveFamily(req, res){
     try {
         const adoptiveFamily = await AdoptiveFamily.update(req.body, {
-            where: {id: req.params.id},
+            where: { id: req.params.id },
         })
-        res.status(200).json(adoptiveFamily)//({text: 'AdoptiveFamily updated'})
+        res.status(200).json(adoptiveFamily)
     } catch (error) {
         res.status(402).send(error.message)
     }
