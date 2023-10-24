@@ -18,17 +18,28 @@ function checkAuth(req, res, next){
 }
 
 function checkAdmin(req, res, next){
-
+    if (res.locals.user.role !== 'admin'){
+        return res.status(404).send('User not authorized')
+    } else {
+        next()
+    }
 }
 
 function checkEmployee(req, res, next) {
-
+    if (res.locals.user.role !== 'admin' || res.locals.user.role !== 'employee'){
+        return res.status(404).send('User not authorized')
+    }
 }
 
 function checkVolunteer(req, res, next) {
-
+    if (res.locals.user.role !== 'admin' || res.locals.user.role !== 'employee' || res.locals.user.role !== 'volunteer') {
+        return res.status(404).send('User not authorized')
+    }
 }
 
-function checkUser(req, res, next){
-
+module.exports = { 
+    checkAuth,
+    checkAdmin, 
+    checkEmployee, 
+    checkVolunteer
 }
