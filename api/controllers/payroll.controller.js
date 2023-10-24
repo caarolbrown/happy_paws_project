@@ -25,8 +25,16 @@ async function createPayroll(req, res){
     try {
         const payroll = await Payroll.create(req.body)
         res.status(200).send('Payroll created')
-
-    } catch (error) {
+        if (payroll.position === 'vet' ) {
+            payroll.amount >= 1500
+        }
+        else if (payroll.position === 'vet auxiliary')
+                 payroll.amount <= 1500
+        else (payroll.position === 'managment') 
+            payroll.amount > 1000 && payroll.amount < 2000
+        if (payroll.position !== 'vet' && 'vet auxiliary' && 'managment')
+            return res.status(404).send('invalid position')}
+    catch (error) {
         res.status(402).send(error.message)
     }
 }
@@ -51,6 +59,9 @@ async function deletePayroll(req, res){
     } catch (error) {
         res.status(402).send(error.message)
     }
+}
+async function maxPayroll(req, res){
+    
 }
 
 module.exports = { getAllPayroll, getOnePayroll, createPayroll, updatePayroll, deletePayroll }
