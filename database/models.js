@@ -11,27 +11,27 @@ const AdoptiveFamily = require ('../api/models/adoptiveFamily.model.js')
 function setRelations(){
     try {
         //One to one 
-        Animal.hasOne(Cage)
+        Animal.hasOne(Cage,{ onDelete: 'CASCADE' })
         Cage.belongsTo(Animal)
 
-        User.hasOne(Payroll)
+        User.hasOne(Payroll,{ onDelete: 'CASCADE' })
         Payroll.belongsTo(User)
 
-        User.hasOne(HostFamily)
+        User.hasOne(HostFamily,{ onDelete: 'CASCADE' })
         HostFamily.belongsTo(User)
 
-        User.hasOne(AdoptiveFamily)
+        User.hasOne(AdoptiveFamily,{ onDelete: 'CASCADE' })
         AdoptiveFamily.belongsTo(User)
 
         //One to many
 
-        User.hasMany(Task)
+        User.hasMany(Task,{ onDelete: 'CASCADE' })
         Task.belongsTo(User)
 
-        HostFamily.hasMany(User)
+        HostFamily.hasMany(User,{ onDelete: 'CASCADE' })
         User.belongsTo(HostFamily)
 
-        Animal.hasMany(AdoptiveFamily)
+        Animal.hasMany(AdoptiveFamily,{ onDelete: 'CASCADE' })
         AdoptiveFamily.belongsTo(Animal)
 
         //Many to many
@@ -40,12 +40,6 @@ function setRelations(){
 
         Animal.belongsToMany(Sickness, { through: 'animal_sickness' })
         Sickness.belongsToMany(Animal, { through: 'animal_sickness' })
-        
-        User.hasOne(Payroll)
-        Payroll.belongsTo(User)
-          
-        User.hasMany(Task);
-        Task.belongsTo(User);
     } catch (error) {
         console.log(error)
     }

@@ -14,6 +14,11 @@ const User = sequelize.define('user', {
         age: {
             type: DataTypes.INTEGER,
         },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
         role: {
             type: DataTypes.ENUM('user', 'employee', 'volunteer', 'admin'),
             defaultValue: 'user'
