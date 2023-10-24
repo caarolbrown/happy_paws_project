@@ -8,7 +8,7 @@ const Task = sequelize.define('task', {
         allowNull: false
     },
     availability: {
-        type: DataTypes.ENUM('mañanas', 'todos los días', 'fines de semana', 'entre semana', 'tardes'),
+        type: DataTypes.ENUM('mornings', 'everyday', 'weekends', 'weekdays', 'evenings', 'afternoons'),
         allowNull: false
     }
 },

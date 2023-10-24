@@ -85,7 +85,6 @@ async function createAnimal(req, res) {
     }
 }
 
-
 async function updateAnimal(req, res) {
     try {
         const animal = await Animal.update(req.body, {

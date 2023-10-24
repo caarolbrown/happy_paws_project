@@ -17,9 +17,21 @@ function setRelations(){
         User.hasOne(Payroll)
         Payroll.belongsTo(User)
 
+        User.hasOne(HostFamily)
+        HostFamily.belongsTo(User)
+
+        User.hasOne(AdoptiveFamily)
+        AdoptiveFamily.belongsTo(User)
+
         //One to Many 
         User.hasMany(Task)
         Task.belongsTo(User)
+
+        HostFamily.hasMany(User)
+        User.belongsTo(HostFamily)
+
+        Animal.hasMany(AdoptiveFamily)
+        AdoptiveFamily.belongsTo(Animal)
 
         //Many to many
         Animal.belongsToMany(Treatment, { through: 'animal_treatment' })

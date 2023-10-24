@@ -13,9 +13,23 @@ async function getOneCage(req, res){
     try {
         const cage = await Cage.findByPk(req.params.id)
         if (!cage) { res.status(500).send('Cage not found')}
-        res.status(200).json(cage)
+        return res.status(200).json(cage)
     } catch (error) {
-        res.status(500).send(error.message)
+        return res.status(500).send(error.message)
+    }
+}
+
+async function cageStatus(req, res) {
+    try {
+        const cage = await Cage.findByPk(req.body.cageId)
+
+        if (cage.availability === 'occupied'){
+            return res.status(500).send(error.message)
+        } 
+        return res.status(200).send('This cage is free')
+
+    } catch (error) {
+        return res.status(500).send(error.message)
     }
 }
 

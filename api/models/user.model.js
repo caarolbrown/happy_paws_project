@@ -12,7 +12,12 @@ const User = sequelize.define('user', {
         allowNull: false
     },
     age: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
     role: {
         type: DataTypes.ENUM('user', 'employee', 'volunteer', 'admin'),
