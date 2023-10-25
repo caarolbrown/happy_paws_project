@@ -18,10 +18,10 @@ function checkAuth(req, res, next){
 }
 
 function checkAdmin(req, res, next){
-    if (res.locals.user.role !== 'admin'){
-        return res.status(404).send('User not authorized')
-    } else {
+    if (res.locals.user.role === 'admin'){
         next()
+    } else {
+        return res.status(404).send('User not authorized')
     }
 }
 
