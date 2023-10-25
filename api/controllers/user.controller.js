@@ -1,5 +1,6 @@
 const User = require('../models/user.model.js') //nos importamos el modelo de usuario
 const Task = require('../models/task.model.js')
+const bcrypt = require('bcrypt')
 
 async function getAllUsers(req, res) {
     try {
@@ -33,6 +34,9 @@ async function getProfile(req, res) {
 }
 
 async function createUser(req, res) {
+    const saltRounds = bcrypt.genSaltSync(parseInt(process.env.SALTROUNDS))
+    const hashedPassword = bcrypt.hashSync(req.body.password, saltRounds)
+    req.body.password = hashedPassword
     try {
         const user = await User.create(req.body)
         return res.status(200).send('User created')
