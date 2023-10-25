@@ -34,10 +34,10 @@ function checkEmployee(req, res, next) {
 }
 
 function checkVolunteer(req, res, next) {
-    if (res.locals.user.role !== 'admin' || res.locals.user.role !== 'employee' || res.locals.user.role !== 'volunteer') {
-        return res.status(404).send('User not authorized')
-    } else {
+    if (res.locals.user.role === 'admin' || res.locals.user.role === 'employee' || res.locals.user.role === 'volunteer') {
         next()
+    } else {
+        return res.status(404).send('User not authorized')
     }
 }
 

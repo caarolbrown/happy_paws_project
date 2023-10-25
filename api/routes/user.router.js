@@ -6,7 +6,7 @@ const router = require('express').Router()
 
 //definimos CRUD basico de user
 router.get('/', checkAuth, checkAdmin, getAllUsers) 
-router.get('/getProfile', checkAuth, checkAdmin, getProfile)
+router.get('/getProfile', checkAuth, getProfile)
 router.get('/:id', checkAuth, checkAdmin, getOneUser) 
 router.post('/', checkAuth, checkAdmin, createUser) 
 router.put('/task', checkAuth, checkAdmin, setTask)
