@@ -44,7 +44,7 @@ async function updateCage(req, res) {
 
 async function cageStatus(req, res) {
     try {
-        const cage = await Cage.findByPk(req.body.cageId)
+        const cage = await Cage.findByPk(req.params.id)
 
         if (cage.availability === 'occupied') {
             return res.status(500).send('This cage is occupied')

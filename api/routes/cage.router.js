@@ -5,7 +5,7 @@ const router = require('express').Router()
 
 //definimos CRUD basico de cage
 router.get('/', checkAuth, checkVolunteer, getAllCages)
-router.get('/availability', checkAuth, checkVolunteer, cageStatus)
+router.get('/availability/:id', checkAuth, checkVolunteer, cageStatus)
 router.get('/:id', checkAuth, checkVolunteer, getOneCage)
 router.post('/', checkAuth, checkAdmin, createCage)
 router.put('/:id', checkAuth, checkAdmin, updateCage)
