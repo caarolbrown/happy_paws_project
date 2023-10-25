@@ -26,7 +26,9 @@ function checkAdmin(req, res, next){
 }
 
 function checkEmployee(req, res, next) {
-    if (res.locals.user.role !== 'admin' || res.locals.user.role !== 'employee'){
+    if (res.locals.user.role === 'admin' || res.locals.user.role === 'employee'){
+        next()
+    } else {
         return res.status(404).send('User not authorized')
     }
 }
@@ -34,6 +36,8 @@ function checkEmployee(req, res, next) {
 function checkVolunteer(req, res, next) {
     if (res.locals.user.role !== 'admin' || res.locals.user.role !== 'employee' || res.locals.user.role !== 'volunteer') {
         return res.status(404).send('User not authorized')
+    } else {
+        next()
     }
 }
 
