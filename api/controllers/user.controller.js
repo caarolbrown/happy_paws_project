@@ -60,18 +60,17 @@ async function updateUser(req, res) {
 async function setTask(req, res) {
     try {
         const task = await Task.findByPk(req.body.taskId)
-        const user = await User.findByPk(req.body.voluntarioId, {
+        const user = await User.findByPk(req.body.userId, {
             include: Task
         })
-
         if (user.role != 'volunteer') {
-            return res.status(501).send("This is not volunteer")
+            return res.status(501).send("This is not a volunteer")
         }
         if (user.tasks.length >= 2) {
-            return res.status(501).send("Este Voluntario tiene demasiadas tareas")
+            return res.status(501).send("This volunteer has a lot of tasks")
         }
         await task.setUser(user)
-        return res.status(200).send("Tarea añadida")
+        return res.status(200).send("Task added")
     } catch (error) {
         return res.status(500).send(error.message)
     }
