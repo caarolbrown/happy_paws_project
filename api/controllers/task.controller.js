@@ -48,7 +48,7 @@ async function updateTask(req, res){
         const task = await Task.update(req.body, {
             where: { id: req.params.id },
         })
-        res.status(200).json(user)//({text: 'Task updated'})
+        res.status(200).json(task)//({text: 'Task updated'})
     } catch (error) {
         res.status(402).send(error.message)
     }
