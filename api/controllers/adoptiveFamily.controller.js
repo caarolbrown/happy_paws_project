@@ -24,8 +24,7 @@ async function createAdoptiveFamily(req, res){
     console.log(req.body)
     try {
         const adoptiveFamily = await AdoptiveFamily.create(req.body)
-        res.status(200).send('AdoptiveFamily created')
-
+        res.status(200).json(adoptiveFamily)
     } catch (error) {
         res.status(402).send(error.message)
     }

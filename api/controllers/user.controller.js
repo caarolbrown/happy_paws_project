@@ -25,7 +25,9 @@ async function getOneUser(req, res) {
 
 async function getProfile(req, res) {
     try {
-        const user = await User.findByPk(res.locals.user.id)
+        const user = await User.findByPk(res.locals.user.id, {
+            include: Task
+        })
         if (!user) { res.status(500).send('User not found') }
         return res.status(200).json(user)
     } catch (error) {
@@ -67,7 +69,7 @@ async function setTask(req, res) {
             return res.status(501).send("This is not a volunteer")
         }
         if (user.tasks.length >= 2) {
-            return res.status(501).send("This volunteer has a lot of tasks")
+            return res.status(501).send("This volunteer has many of tasks")
         }
         await task.setUser(user)
         return res.status(200).send("Task added")
