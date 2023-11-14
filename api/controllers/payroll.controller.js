@@ -46,11 +46,6 @@ async function createPayroll(req, res) {
                     return res.status(404).send('Not the regular payment');
                 }
                 break;
-
-            default:
-                if (payroll.amount === 1300) {
-                }
-                break;
         }
         res.status(200).send('Payroll created');
     } catch (error) {
